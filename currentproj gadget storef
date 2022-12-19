@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+p {
+    color: #00ff15;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    background-color: #111;
+    overflow: scroll;
+          overflow-x: hidden;
+        
+        }
+
+
+        ::-webkit-scrollbar {
+        width: 0px; 
+}
+
+
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    height: 3.6rem;
+    width: 2000px;
+    align-items: center;
+    background: rgba(14, 14, 14, 0.61);
+    border-bottom: 2px solid rgb(0, 255, 21);
+    border-radius: 0.1rem;
+    z-index: 999;
+}
+
+nav.active {
+    position: fixed;
+    top: 0;
+    height: 4rem;
+    width: 100%;
+    border-radius: 0;
+}
+
+nav.active .search-box {
+    width: 24rem;
+}
+
+nav .logo { 
+    margin-left: 3rem;
+}
+
+nav.active .logo {
+    margin-left: 4rem;
+}
+
+nav .logo a {
+    color: #00ff00;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav .nav-items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+}
+
+.nav-items li {
+    margin-right: 2rem;
+}
+
+.nav-items li a {
+    color: #00ff2a;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.nav-items li a:hover {
+    color: rgb(255, 51, 0);
+}
+
+.search-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 2.2rem;
+    width: 18rem;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.search-box .search-icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    width: 15%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: #00ff00ef;
+    border-radius: 0.1rem 0 0 0.1rem;
+}
+
+.search-box .search-icon span {
+    color: rgba(31, 31, 31, 0.493);
+    font-size: 1.2rem;
+}
+
+.search-box input {
+    padding-left: 0.8rem;
+    height: 100%;
+    width: 80%;
+    border: none;
+    outline: none;
+    color: #2e2e3f;
+    font-size: 1rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0 0.1rem 0.1rem 0;
+}
+
+nav .icon-links {
+    margin-right: 2.8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+#hero {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    -webkit-transform: translate(5%, -50%);
+    -ms-transform: translate(5%, -50%);
+    transform: translate(5%, -50%);
+    width: 45%;
+    color: #fff;
+    z-index: 9;
+}
+
+#hero h1 {
+    font-size: 3.4rem;
+    text-shadow: 0 0 0.6rem #111;
+}
+
+#hero p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
+    text-shadow: 0 0 0.6rem #111;
+}
+
+#hero .button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 1.8rem;
+}
+
+#hero .button .btn {
+    margin-right: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 9rem;
+    height: 3.6rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #00ff15;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 0 0.6rem rgb(64, 255, 16);
+    box-shadow: 0 0 0.6rem rgb(21, 255, 0);
+}
+
+#hero .button a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.top-products {
+    width: 100%;
+}
+
+.products {
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.products .incel {
+    margin: 0.4rem;
+    position: relative;
+    -ms-flex-preferred-size: 330px;
+    flex-basis: 330px;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    height: 240px;
+    border-radius: 0.1rem;
+}
+
+.products .incel.one {
+   background-color: rgba(48, 47, 47, 0.767);
+    background-size: cover;
+    background-position: center;
+}
+
+.products .incel.mango {
+    background-color: rgba(48, 47, 47, 0.767);
+    background-size: cover;
+    background-position: center;
+}
+
+.products .incel.peach {
+    background-color: rgba(48, 47, 47, 0.767);
+    background-size: cover;
+    background-position: center;
+}
+
+.products .incel.strawberry {
+    background-color: rgba(48, 47, 47, 0.767);
+    background-size: cover;
+    background-position: center;
+}
+
+.products .incel .incel-text {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.products .incel .incel-text h2 {
+    color: rgb(145, 250, 9);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 0.2rem #444;
+}
+
+.products .incel .incel-text span {
+    color: rgb(255, 255, 255);
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 0.2rem #444;
+}
+
+.products .incel .incel-text p {
+    color: #fff;
+    font-size: 1.8rem;
+    text-shadow: 0 0 0.2rem #444;
+}
+
+.featured-product-section {
+    padding-bottom: 2rem;
+}
+
+.featured-product-wrap {
+    padding-top: 3.6rem;
+}
+
+.featured-products {
+    padding-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+
+}
+
+.product-wrap {
+    margin: 0 0.7rem 2rem 0.6rem;
+    position: relative;
+    height: 360px;
+    width: 260px;
+    background: rgba(31, 30, 30, 0.397);
+    border-radius: 0.2rem;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+   
+   
+}
+
+.product-wrap:hover {
+    -webkit-box-shadow: 0.6rem 0.6rem 1rem rgb(94, 255, 0);
+    box-shadow: 0.6rem 0.6rem 1rem rgb(30, 255, 0);
+}
+
+.product-wrap .product-img {
+    position: relative;
+    width: 100%;
+    height: 55%;
+    
+    border-radius: 0.2rem 0.2rem 0.6rem 0.6rem;
+}
+
+.product-wrap .product-img::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  
+    border-radius: 0.2rem 0.2rem 0.8rem 0.8rem;
+}
+
+.product-wrap .product-img img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0.2rem 0.2rem 0.8rem 0.8rem;
+}
+
+.product-wrap .product-icons {
+    position: absolute;
+    color: #48ff00;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.product-description .price {
+    margin-top: 0.6rem;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.product-description .price .f-product-unit {
+    display: none;
+}
+
+ .add-to-cart-btn {
+    margin-top:12px;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.product-description .add-to-cart-btn p {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.2rem;
+    background: #67ff20;
+}
+
+</style>
+    <title>Activity c</title>
+</head>
+
+<body>
+    <div class="home">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">  Incel | </Incel></a>
+            </div>
+<br>
+            <ul class="nav-items">
+                <li><a href="#top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+               
+            </ul>
+            <div class="search-box">
+                <div class="search-icon">
+                    <span class="icon-search"></span>
+                </div>
+                <input type="text" placeholder="Search...">
+            </div>
+        </nav>
+
+
+        <!-- hero yessir -->
+        <div id="hero">
+            <h1>Abandon all hope ye who enter here</h1>
+            <p>activity c aaaaaaa waduhel.</p>
+            <div class="button">
+                <div class="btn">
+                    <a href="#">Explore</a>
+                </div>
+                <div class="btn">
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- top products /best seller -->
+    <div class="top-products">
+        <div class="section-wrap">
+            <div class="sub-section-title">
+                <h2 style="color: rgb(255, 255, 255);">Top products</h2>
+             
+            </div>
+
+            <div class="products">
+                <div class="incel one">
+                    <div class="incel-text">
+                        <h2>one</h2>
+                        <span>10,000+</span>
+                        <p>Sales</p>
+                    </div>
+                </div>
+
+                <div class="incel mango">
+                    <div class="incel-text">
+                        <h2>two</h2>
+                        <span>9000+</span>
+                        <p>Sales</p>
+                    </div>
+                </div>
+
+                <div class="incel peach">
+                    <div class="incel-text">
+                        <h2>three</h2>
+                        <span>2220+</span>
+                        <p>Sales</p>
+                    </div>
+                </div>
+
+                <div class="incel strawberry">
+                    <div class="incel-text">
+                        <h2>four</h2>
+                        <span>1000+</span>
+                        <p>Sales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- featured products aaa  -->
+    <div class="featured-product-section" id="products">
+        <div class="section-wrap">
+            
+            <div class="featured-product-wrap incels">
+                <div class="sub-section-title">
+                    <h2 style="color: rgb(255, 255, 255);">Featured products</h2>
+                    
+                </div>
+
+                <div class="featured-products">
+                    <div class="product-wrap one">
+                        <div class="product-img">
+                            <img src="https://www.ps4wallpapers.com/wp-content/uploads/2021/09/2021-09-04_6133a6c848714_jn1XvxpT.png" alt="one_img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">18</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">mama mo sheesh </p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap balls">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">20</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">balls</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap Hail Gura">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">18</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">Hail gura</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap ame">
+                        <div class="product-img">
+                            <img src="" alt="">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">24</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">ame supremacy?</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                                </ins>
+                                
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">22</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">big balls?</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap aut">
+                        <div class="product-img">
+                            <img src="" alt="">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">20</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">autistic neighbor with big bat?</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap aaaaaa">
+                        <div class="product-img">
+                            <img src="" alt="">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">12</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">aaack what now</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap balls deep">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">18</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">balls deep</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap yo mama">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">10</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">yo mama</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap natoy x jovit bl">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">24</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">natoy x jovit bl</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap dorimoun">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">22</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">dorimoun</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap blue chicknaaaaa">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">16</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">blue chicknaaaaa</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">26</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">iphone 69 pro</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-wrap">
+                        <div class="product-img">
+                            <img src="" alt="img">
+                        </div>
+
+                        <div class="product-icons">
+                            <div class="add-to-favorite"><span class="icon-heart"></span></div>
+                            <p><span class="discount">12</span>% off</p>
+                        </div>
+
+                        <div class="product-description">
+                            <p class="product-name">scratchy balls</p>
+                            <p class="price">
+                                <strong>Price:</strong>
+                                <del>
+                                    <span class="f-product-price">160</span>Php
+                                </del>
+                                <ins>
+                                    <span class="f-cur-price">Now 80Php</span>
+                                </ins>
+                                <span class="f-product-unit"></span>
+                            </p>
+                            <div class="add-to-cart-btn">
+                                <p><span class="icon-cart-plus"></span> Add to Cart</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+
+
+</body>
+
+</html>
