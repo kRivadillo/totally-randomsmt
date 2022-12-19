@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>webpage003</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+     <style>
+   
+    *{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body{
+    background-color: rgb(12, 9, 22);
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+  
+}
+  body {
+  margin: 0;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+nav{
+  background: rgba(255, 0, 0, 0.5);
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: rgb(255, 0, 0);
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: rgb(255, 0, 0);
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: #410d0d;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: rgb(255, 0, 0);
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+   
+  }
+  nav ul li a{
+    font-size: 16px;  
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 0, 0, 0.774);
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color:rgba(255, 0, 0, 0.5);
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+
+::selection{
+  background: rgba(255, 0, 0, 0.253);
+}
+nav{
+  position: fixed;
+  background-color: rgba(0, 0, 22, 0.568);
+  width: 100%;
+  padding: 10px 0;
+  z-index: 12;
+}
+nav .menu{
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.menu .logo a{
+  text-decoration: none;
+  color: rgba(255, 0, 76, 0.397);
+  font-size: 35px;
+  font-weight: 600;
+}
+.menu ul{
+  display: inline-flex;
+}
+.menu ul li{
+  list-style: none;
+  margin-left: 7px;
+}
+.menu ul li:first-child{
+  margin-left: 0px;
+}
+.menu ul li a{
+  text-decoration: none;
+  color: rgb(255, 0, 0);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    display: table-row;
+    height: 0;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  min-height: 100vh;
+  gap: 0.5em;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  max-width: 80rem;
+  margin: auto;
+}
+.container img {
+  width: calc((60% / 3) - 0.5rem);
+  height: calc((50% / 3));
+}
+img {
+ 
+  transition: all 0.1s;
+}
+img:hover {
+  transform: scale(0.98);
+  cursor: pointer;
+  filter: grayscale(70%);
+}
+
+.lightbox {
+  background-color: rgba(0, 0, 0, 0.533);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  backdrop-filter: blur(3px);
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+.lightbox img:hover {
+  filter: initial;
+}
+.displayNone {
+  display: none;
+}
+
+section{
+  background: url(bg1.jpg) no-repeat;
+  background-size: cover;
+  height: calc(100vh - 80px);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+.collapsible {
+  background-color: rgba(0, 0, 22, 0.568);
+  color: rgba(255, 0, 0, 0.534);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: rgba(0, 0, 22, 0.568);
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: rgba(0, 0, 22, 0.568);
+} 
+
+</style>
+
+</head>
+<body>
+  <nav>
+  
+    <label class="logo">JuiceWrld |On My Mind</label>
+    <ul>
+    
+      <li><a href="https://www.youtube.com/embed/Wm9r36zkJL4?list=PLueDjbq1k__tMXeBWEvJp50IlhRtShHoZ" class="nav">Play Music on Youtube</a></li>
+      
+    </ul>
+  </nav>
+  <span id="top"> </span>
+ <header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  
+   
+          </header>
+          
+          <iframe width="1046" height="588" src="https://www.youtube.com/embed/Wm9r36zkJL4?list=PLueDjbq1k__tMXeBWEvJp50IlhRtShHoZ" title="Juice WRLD "On My Mind" (Official Audio)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+<br>
+<br>
+<br>
+          <button type="button" class="collapsible">Lyrics  ↓</button>
+          <div class="content">
+            <li><strong>[Intro]</strong></li>
+            <li>
+              I can't make my mind up (I can't make my mind) (Uh)
+              Told her that her time's up (You can't change my mind)
+              Yeah, woah, woah
+              Enviyon on the mix (Uh)</li>
+            
+            <li><strong>[Chorus]</strong></li>
+            <li>Too much on my mind, yeah
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)
+              Had her in the past, but
+              I will not rewind, yeah (I won't rewind)
+            <li> I will not rewind her (I won't rewind)
+              I will leave her there, huh
+              Too much on my mind, yeah
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)</li>
+            Had her in the past, but
+            I will not rewind, yeah (I won't rewind)
+            I will not rewind her (I won't rewind)
+            I will leave her there, huh</li>
+            <br>
+            <br>
+            <li><strong>[Verse 1]</strong></li>
+            <li>I will leave her where I met her, in the past (In the past)
+              Every heartbreak worse than the last (Than the last)
+              Playin' love games while she playin' catch up (I don't play catch up)
+              Married to the money, I'ma get my cash up (I just backup)
+            <li> (You know it), ayy
+              She wanna call for backup (I won't do backup)
+              (You know it), ayy
+              Fuckin' her friends and I smash 'em (I'm gonna smash 'em)
+              It's over, huh</li>
+            Hop in that Audi and back up (I will just back up)
+            I swerve it, huh
+            I do what I want
+            I deserve it
+            I'm in my lane, I'm speedin' (Skrtt)
+            I've been breakin' these hearts and I don't even have a reason (No)
+            Winter all over my wrist, it's snowin', I could change the season (It's froze)
+            <li> I been fuckin' her friends and fuckin' her
+              Now she wonder why friends don't fuck with her
+              I just had two girls, I double up
+              I just had codeine, I double cup
+              I just had two beans, I'm loaded
+              Got two Glocks, I'm locked and I'm loaded (Woah)
+              Driving drunk inside that Lotus
+              Hope the cops don't pull me over
+              Love to stay, but girl it's over</li>
+            This is called a leaving notice (Leaving notice)
+            Yeah, this is called a leaving notice (A leaving notice)
+            Yeah, got two Glocks, I'm locked and I'm loaded
+            Driving drunk inside that Lotus
+            Hope the cops don't pull me over
+            (Hope the cops they ain't pullin' me over)
+            Hope the cops don't pull me over (Woah)</li>
+            <br>
+            <br>
+            
+            <li><strong>[Chorus]</strong></li>
+            <li>Too much on my mind, yeah
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)
+              Had her in the past, but
+              I will not rewind, yeah (I won't rewind)
+              I will not rewind her (I won't rewind)
+              I will leave her there, huh
+              Too much on my mind, yeah
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)
+              Had her in the past, but
+              I will not rewind, yeah (I won't rewind)
+              I will not rewind her (I won't rewind)
+              I will leave her there, huh</li>
+            <br>
+            <br>
+            <li><strong>[Verse 2]</strong></li>
+            <li>Money all over my mind, yeah
+              Rollie all over my time, yeah
+              The joke's up, the game's over
+              Girl, you get the cold shoulder (Bye, bye)
+              But I just been all on my grind, yeah
+              She know I'm all in my prime, yeah
+              Her boyfriend wanna do me over
+              .45 up in my holster (Bye, bye)
+              He won't stand a chance
+              He know I'm the man (Yeah)
+              Downed a couple Xans
+              <br>
+              <br>
+              Like here we go again (Here we go)
+              Ha, I turned to a junkie for money (Yeah, I know)
+              Leave that Bathing Ape shit for the monkeys (Oh no)
+              Rock VLONE all the way to the undies (Huh)
+              Like a virgin, these niggas can't touch me (Yeah)
+              Like a virgin, my diamonds are holy (Like what?)
+              Mix that purple and yellow like Kobe (Like what?)
+              Don't approach me if you do not know me (Like what?)
+              I fuck her from the back like she owe me (Like what?)
+              She told me that she wanna get married (Huh)
+              But I know that she fucked on my brodie (Like what?)
+              Yeah, I know that she fucked on my brodie (Like what?)
+              I fuck her and pass her to my brodie (Woah)
+            </li>
+            
+            <br>
+            <br>
+            <li><strong>[Bridge]</strong></li>
+            <li>I fuck her and pass her to my brodie (Like what?)
+              Told that ho that she don't know me
+              24 how I'm ballin' like Kobe (Like who?)
+              All of these bitches be on me
+              Huh, ayy
+              All of these bitches be on me </li>
+            <br>
+            <br>
+            <li><strong>[Chorus]</strong></li>
+            <li>Too much on my mind, yeah
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)
+              Had her in the past, but
+              I will not rewind, yeah (I won't rewind)
+              I will not rewind her (I won't rewind)
+              I will leave her there, huh
+              Too much on my mind, yeah
+              <br>
+              <br>
+              I can't make my mind up (Can't make my mind up)
+              Told her that her time's up
+              I been on my grind, yeah (All on my grind, yeah)
+              Had her in the past, but
+              I will not rewind, yeah (I won't rewind)
+              I will not rewind her (I won't rewind)
+              I will leave her there, huh
+            </li>
+            
+            
+            <li><strong>[Outro]</strong></li>
+            <li>
+              I will leave, I will leave (Leave)
+              Huh, I will leave (Can't make my mind up, my mind up)
+              Huh, I will leave
+              All on my grind, yeah, uh
+              Huh, I will leave
+              I will rewind, I will rewind</li>
+
+                    
+            </div>
+
+        </div>
+
+</body>
+</html>
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+<h1 style="color:rgba(255, 0, 0, 0.533)">Gallery</h1>
+<br>
+<br>
+<br>
+  <div class="container">
+    <img src="https://www.pixelstalk.net/wp-content/uploads/images6/Juice-Wrld-Aesthetic-Backgrounds-Free-Download.jpg" />
+    <img src="https://w0.peakpx.com/wallpaper/549/90/HD-wallpaper-juice-wrld-red-juice-legends-red-smoke-world-wrld.jpg" />
+    <img src="https://w0.peakpx.com/wallpaper/997/308/HD-wallpaper-juice-wrld-red-999-999forever-juicewrld.jpg" />
+    <img src="https://www.enwallpaper.com/wp-content/uploads/juice-wrld88-website-image-jlyj-standard.jpg" />
+    <img src="https://i.pinimg.com/564x/e8/2f/75/e82f7549dddfb88d77cfcaa4b3b79c05.jpg" />
+
+  </div>
+  <!--important code dont remove fr fr-->
+  <div class="lightbox displayNone">
+    <img src="" alt="" />
+    <!--don remove frfr-->
+  </div>
+  <footer>
+    <em>Webpage by Rivadillo</em>
+    <br>
+    <strong>© Credits to the artists.</strong>
+    <br>
+    <br>
+    
+ </footer>
+
+
+</html>
+<script>
+
+    let _contImg = document.querySelectorAll(".container img");
+    let _lightbox = document.querySelector(".lightbox");
+    
+    _contImg.forEach(func_item);
+    
+    function func_item(item_) {
+      item_.addEventListener("click", func_handler);
+      function func_handler() {
+        console.log(item_.src);
+        _lightbox.querySelector("img").src = item_.src;
+        func_toggle();
+      }
+    }
+    
+    _lightbox.addEventListener("click", func_toggle);
+    
+    function func_toggle() {
+      _lightbox.classList.toggle("displayNone");
+    }
+    
+    var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+        </script>
